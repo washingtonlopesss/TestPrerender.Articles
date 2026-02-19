@@ -1,0 +1,13 @@
+@if (carregando()) {
+  <p class="state">Carregando artigo...</p>
+} @else if (erro()) {
+  <p class="state state-error">{{ erro() }}</p>
+  <a class="back-link" routerLink="/">Voltar para a lista</a>
+} @else if (artigo(); as artigoAtual) {
+  <article class="article">
+    <p class="meta">{{ artigoAtual.createdAt }}</p>
+    <h1>{{ artigoAtual.title }}</h1>
+    <section class="content" [innerHTML]="artigoAtual.content"></section>
+    <a class="back-link" routerLink="/">Voltar para a lista</a>
+  </article>
+}

@@ -1,0 +1,23 @@
+<section class="intro">
+  <h1>Artigos</h1>
+  <p>Lista simples com rotas dinamicas e prerender no build.</p>
+</section>
+
+@if (carregando()) {
+  <p class="state">Carregando lista...</p>
+} @else if (erro()) {
+  <p class="state state-error">{{ erro() }}</p>
+} @else {
+  <ul class="article-list">
+    @for (artigo of artigos(); track artigo.slug) {
+      <li>
+        <a [routerLink]="['/artigos', artigo.slug]">
+          <h2>{{ artigo.title }}</h2>
+          <p>{{ artigo.createdAt }}</p>
+        </a>
+      </li>
+    } @empty {
+      <li class="state">Nenhum artigo cadastrado.</li>
+    }
+  </ul>
+}
