@@ -11,7 +11,7 @@
   <ul class="article-list">
     @for (artigo of artigos(); track artigo.slug) {
       <li>
-        <a [routerLink]="['/artigos', artigo.slug]">
+        <a [routerLink]="['/TestPrerender.Articles/artigos', artigo.slug]">
           <h2>{{ artigo.title }}</h2>
           <p>{{ artigo.createdAt }}</p>
         </a>
